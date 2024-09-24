@@ -25,5 +25,14 @@ go install github.com/deadjakk/safespray@latest
 
 # To Use
 ```
-
+jakk@tele ~/spaf $ ./safespray -domain sprawl.local.shell.rip -password Password1 -spraypassword Password1 -userlist users.txt -username administrator -verbose
+SKIPPED account (reason: not present in user list): Administrator
+ADDED account: carnivore
+loaded 1 users
+SUCCESS - carnivore@sprawl.local.shell.rip with password Password1
 ```
+
+# Example usage  
+Note: These were both run in quick succession, and because the test account failed to authenticate on the first run, it was omitted from the second run due to the updated `badPwdCount`.  
+![image](https://github.com/user-attachments/assets/31781280-0360-4a1e-87b4-a3ad0bee63ae)
+
