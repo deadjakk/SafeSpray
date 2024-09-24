@@ -183,7 +183,7 @@ func main() {
         }
         samAccounts = append(samAccounts, samAccount)
     }
-    fmt.Println(fmt.Sprintf("laoded %d users", len(samAccounts)))
+    fmt.Println(fmt.Sprintf("loaded %d users", len(samAccounts)))
 
     for _, samAccount := range samAccounts {
         if attemptLogin(samAccount, *sprayPassword, *domain) {
