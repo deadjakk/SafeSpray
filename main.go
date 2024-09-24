@@ -91,6 +91,7 @@ func main() {
     userList := flag.String("userlist", "", "path to the user file")
     sprayPassword := flag.String("spraypassword", "", "password to spray")
     verbose := flag.Bool("verbose", false, "(optional) enable verbose output")
+    dryRun := flag.Bool("dryrun", false, "(optional RECOMMENDED) will load the users and do nothing else. good to see what accounts will be run against")
     flag.Parse()
        // Validate required flags
     if *domain == "" || *username == "" || *password == "" || *userList == "" || *sprayPassword == "" {
@@ -186,6 +187,10 @@ func main() {
     fmt.Println(fmt.Sprintf("loaded %d users", len(samAccounts)))
 
     for _, samAccount := range samAccounts {
+        if *dryRun {
+            fmt.Println("-dryrun flag enabled, exiting")
+            return
+        }
         if attemptLogin(samAccount, *sprayPassword, *domain) {
             fmt.Printf("SUCCESS - %s@%s with password %s\n", samAccount, *domain, *sprayPassword)
         } else {

@@ -33,6 +33,29 @@ SUCCESS - carnivore@sprawl.local.shell.rip with password Password1
 ```
 
 # Example usage  
+
+```
+Usage of ./safespray:
+  -authdomain string
+    	(optional) valid domain to query ldap (if different from target domain)
+  -dcip string
+    	(optional) ip of the domain controller, optional, if excluded domain will be used as target instead
+  -domain string
+    	target domain name to authenticate and spray against
+  -dryrun
+    	(optional RECOMMENDED) will load the users and do nothing else. good to see what accounts will be run against
+  -password string
+    	valid password to query ldap
+  -spraypassword string
+    	password to spray
+  -userlist string
+    	path to the user file
+  -username string
+    	valid username to query ldap
+  -verbose
+    	(optional) enable verbose output
+```
+
 Note: These were both run in quick succession, and because the test account failed to authenticate on the first run, it was omitted from the second run due to the updated `badPwdCount`.  
 ![image](https://github.com/user-attachments/assets/31781280-0360-4a1e-87b4-a3ad0bee63ae)
 
