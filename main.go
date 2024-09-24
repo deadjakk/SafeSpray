@@ -170,11 +170,18 @@ func main() {
         if len(samAccount) <= 0 {
             continue
         }
-        if inArr(samAccount, loadedUsers) && isIgnorable(samAccount) == false { 
-            samAccounts = append(samAccounts, samAccount)
-        } else {
-            fmt.Println(fmt.Sprintf("SKIPPED account: %s", samAccount))
+        if isIgnorable(samAccount) == true { 
+            fmt.Println(fmt.Sprintf("SKIPPED account (reason: ignorable): %s", samAccount))
+            continue
         }
+        if inArr(samAccount, loadedUsers) == false {
+            fmt.Println(fmt.Sprintf("SKIPPED account (reason: not present in user list): %s", samAccount))
+            continue
+        } 
+        if *verbose { 
+            fmt.Println(fmt.Sprintf("ADDED account: %s", samAccount))
+        }
+        samAccounts = append(samAccounts, samAccount)
     }
     fmt.Println(fmt.Sprintf("laoded %d users", len(samAccounts)))
 

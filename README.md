@@ -17,3 +17,13 @@ This way you really _shouldn't_ need to worry about the password policy as long 
 it allows more than 1 failed login attempt.
 
 All this said, test it on your own first, I am not responsible for account lockouts.
+
+# To install  
+```
+go install github.com/deadjakk/safespray@latest
+```
+
+# To Use
+```
+
+```
